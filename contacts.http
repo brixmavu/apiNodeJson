@@ -1,0 +1,15 @@
+
+http://localhost:3000/api/contacts 
+
+###
+DELETE http://localhost:3000/api/contacts/1 HTTP/1.1
+
+###
+POST http://localhost:3000/api/contacts HTTP/1.1
+content-type: application/json
+
+{
+"first_name": "Brix",
+"last_name": "Mavu",
+"email": "brixmavu@api.com"
+}
