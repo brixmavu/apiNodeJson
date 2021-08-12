@@ -1,21 +1,20 @@
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser')
 const port = 3000
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 let contacts = require('./data');
 
-app.get('/api/contacts', (res, res) => {
+app.get('/api/contacts', (req, res) => {
     if (!contacts) {
       res.status(404).json({ message: 'No contacts found.' });
     }
     res.json(contacts);
   });
   
-  app.get('/api/contacts/:id', (res, res) => {
+  app.get('/api/contacts/:id', (req, res) => {
   
     let contactId = res.params.id;
   
@@ -30,7 +29,7 @@ app.get('/api/contacts', (res, res) => {
     res.json(contact[0]);
   });
   
-  app.post('/api/contacts', (res, res) => {
+  app.post('/api/contacts', (req, res) => {
   
     let contact = {
       id: contacts.length + 1,
@@ -46,7 +45,7 @@ app.get('/api/contacts', (res, res) => {
   
   });
   
-  app.put('/api/contacts/:id', (res, res) => {
+  app.put('/api/contacts/:id', (req, res) => {
   
     let contactId = res.params.id;
   
@@ -67,7 +66,7 @@ app.get('/api/contacts', (res, res) => {
     res.json(contacts[index]);
   });
   
-  app.delete('/api/contacts/:id', (res, res) => {
+  app.delete('/api/contacts/:id', (req, res) => {
     
     let contactId = res.params.id;
   
