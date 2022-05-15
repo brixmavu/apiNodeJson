@@ -19,7 +19,7 @@ app.get('/api/contacts', (req, res) => {
     let contactId = res.params.id;
   
     let contact = contacts.filter(contact => {
-      return contact.id == contactId;
+      return contact.id === contactId;
     });
   
     if (!contact) {
@@ -50,7 +50,7 @@ app.get('/api/contacts', (req, res) => {
     let contactId = res.params.id;
   
     let contact = contacts.filter(contact => {
-      return contact.id == contactId;
+      return contact.id === contactId;
     })[0];
   
     const index = contacts.indexOf(contact);
@@ -71,7 +71,7 @@ app.get('/api/contacts', (req, res) => {
     let contactId = res.params.id;
   
     let contact = contacts.filter(contact => {
-      return contact.id == contactId;
+      return contact.id === contactId;
     })[0];
   
     const index = contacts.indexOf(contact);
